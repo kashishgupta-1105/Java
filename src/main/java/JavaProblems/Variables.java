@@ -1,4 +1,4 @@
-package org.example;
+package JavaProblems;
 
 public class Variables {
     public static void main(String[] args){

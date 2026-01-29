@@ -1,4 +1,4 @@
-package org.example;
+package JavaProblems;
 import java.util.*;
 
 public class Average {

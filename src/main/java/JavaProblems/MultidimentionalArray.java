@@ -1,4 +1,4 @@
-package org.example;
+package JavaProblems;
 
 public class MultidimentionalArray {
     static void main() {

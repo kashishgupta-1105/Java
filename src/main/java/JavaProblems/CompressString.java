@@ -1,5 +1,4 @@
-package org.example;
-import java.awt.*;
+package JavaProblems;
 import java.util.*;
 //4. Compress a string in the below format
 //Input: -> "aaabbcccdd"

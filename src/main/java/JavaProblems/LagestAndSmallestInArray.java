@@ -1,5 +1,4 @@
-package org.example;
-import java.util.*;
+package JavaProblems;
 
 public class LagestAndSmallestInArray {
     static void main(String[] args) {

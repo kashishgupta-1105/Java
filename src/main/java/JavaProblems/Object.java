@@ -1,4 +1,4 @@
-package org.example;
+package JavaProblems;
 class ClassMethodObject {
     String animal;
     int value;
