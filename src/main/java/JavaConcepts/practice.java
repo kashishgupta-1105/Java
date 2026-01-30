@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaConcepts.JavaProblems;
 
 public class practice {
     static void main() {
