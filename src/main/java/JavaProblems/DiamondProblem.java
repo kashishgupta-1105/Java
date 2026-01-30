@@ -15,7 +15,6 @@ public class DiamondProblem {
             System.out.println();
         }
 
-
         for (int i = n - 1; i >= 1; i--) {
             // Print spaces
             for (int j = 1; j <= n - i; j++) {
