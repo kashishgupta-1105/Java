@@ -1,4 +1,4 @@
-package org.example;
+package JavaConcepts.JavaProblems;
 
 public class practice {
     static void main() {
