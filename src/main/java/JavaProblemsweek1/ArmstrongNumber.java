@@ -1,5 +1,4 @@
-package JavaProblems;
-import java.util.*;
+package JavaProblemsweek1;
 import java.util.Scanner;
 
 public class ArmstrongNumber {

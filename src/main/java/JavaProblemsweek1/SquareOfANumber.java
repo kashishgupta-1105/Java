@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 import java.util.Scanner;
 
 //In a program, input the side of a square. You have to output the area of the square

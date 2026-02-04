@@ -1,6 +1,4 @@
-package JavaProblems;
-
-import java.util.Scanner;
+package JavaProblemsweek1;
 
 public class SpiralMatrix {
 // added a comment

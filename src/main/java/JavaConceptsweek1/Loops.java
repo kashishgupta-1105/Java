@@ -1,4 +1,4 @@
-package JavaConcepts;
+package JavaConceptsweek1;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 import java.util.*;
 //4. Compress a string in the below format
 //Input: -> "aaabbcccdd"

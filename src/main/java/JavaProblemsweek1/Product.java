@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 
 //Class name: Product
 //Fields: id, name, price, gst (in %), available_quantity

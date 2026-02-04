@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 
 public class NumberPattern {
         static void main() {

@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 
 import java.util.Scanner;
 //14.  Given an array nums with n objects colored red, white, or blue, sort

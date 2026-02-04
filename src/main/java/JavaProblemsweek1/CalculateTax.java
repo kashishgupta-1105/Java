@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 import java.util.*;
 
 public class CalculateTax {

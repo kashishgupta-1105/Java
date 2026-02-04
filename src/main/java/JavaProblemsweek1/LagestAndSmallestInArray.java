@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 
 public class LagestAndSmallestInArray {
     static void main(String[] args) {

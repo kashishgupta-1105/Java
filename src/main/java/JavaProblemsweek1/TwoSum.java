@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblemsweek1;
 
 import java.util.*;
 //12. Given an array of integers and an integer target, return indices of the

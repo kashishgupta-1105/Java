@@ -1,4 +1,4 @@
-package JavaConcepts.JavaProblems;
+package JavaConceptsweek1.JavaProblems;
 class ClassMethodObject {
     String animal;
     int value;
