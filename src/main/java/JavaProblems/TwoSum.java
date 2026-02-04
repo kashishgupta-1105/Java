@@ -17,6 +17,20 @@ public class TwoSum {
         System.out.println("Enter target: ");
         int target = sc.nextInt();
 
+        Arrays.sort(a);
+//   For first occurence of sum as target.
+//        for(int i=0,j=a.length-1;i<j;){
+//            if(a[i] + a[j] == target){
+//                System.out.println(i + " " + j);
+//               break;
+//            }else if(a[i] + a[j] < target){
+//                i++;
+//            }else {
+//                j--;
+//            }
+//        }
+
+        // For all occurences of sum as target
         for (int i=0;i<a.length;i++){
             for(int j=i+1;j<a.length;j++){
              if(a[i]+a[j]==target)

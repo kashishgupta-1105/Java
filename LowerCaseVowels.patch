@@ -1,0 +1,295 @@
+Index: src/main/java/JavaConcepts/BankAccount.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/JavaConcepts/BankAccount.java b/src/main/java/JavaConcepts/BankAccount.java
+new file mode 100644
+--- /dev/null	(date 1770050142942)
++++ b/src/main/java/JavaConcepts/BankAccount.java	(date 1770050142942)
+@@ -0,0 +1,8 @@
++package JavaConcepts;
++
++public class BankAccount {
++    private class balance{
++        
++    }
++
++}
+Index: src/main/java/JavaConcepts/Loan.java
+===================================================================
+diff --git a/src/main/java/JavaConcepts/Loan.java b/src/main/java/JavaConcepts/Loan.java
+deleted file mode 100644
+--- a/src/main/java/JavaConcepts/Loan.java
++++ /dev/null
+@@ -1,7 +0,0 @@
+-package JavaConcepts;
+-
+-public interface Loan {
+-     public  int banlance();
+-
+-}
+-
+Index: src/main/java/JavaConcepts/Encapsulation.java
+===================================================================
+diff --git a/src/main/java/JavaConcepts/Encapsulation.java b/src/main/java/JavaConcepts/Encapsulation.java
+deleted file mode 100644
+--- a/src/main/java/JavaConcepts/Encapsulation.java
++++ /dev/null
+@@ -1,26 +0,0 @@
+-package JavaConcepts;
+-
+-class BankAccount {
+-    private double balance;
+-
+-    public void deposit(double amount) {
+-        if (amount > 0) {
+-            balance += amount;
+-        }
+-    }
+-    public double getBalance() {
+-        return balance; // Read-only access
+-    }
+-
+-    public void setBalance(double balance) {
+-        this.balance = balance;
+-    }
+-}
+-
+-public class Encapsulation{
+-    static void main() {
+-        BankAccount account = new BankAccount();
+-        account.deposit(1200.34);
+-        account.getBalance();
+-}
+-}
+Index: src/main/java/JavaConcepts/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/JavaConcepts/App.java b/src/main/java/JavaConcepts/App.java
+--- a/src/main/java/JavaConcepts/App.java
++++ b/src/main/java/JavaConcepts/App.java	(date 1770050142911)
+@@ -22,6 +22,6 @@
+ }
+ public class App {
+     public static void main(String[] args){
+-
++        
+     }
+ }
+Index: src/main/java/JavaProblems/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/JavaProblems/Product.java b/src/main/java/JavaProblems/Product.java
+new file mode 100644
+--- /dev/null	(date 1770052007822)
++++ b/src/main/java/JavaProblems/Product.java	(date 1770052007822)
+@@ -0,0 +1,31 @@
++package JavaProblems;
++
++//Class name: Product
++//Fields: id, name, price, gst (in %), available_quantity
++//
++//Initialize above from a txt/dat file into an array of Product.
++//
++//Format of file:
++//<id> <name> <price> <gst> <available_quantity>
++//
++//Write a menu driven program to let customers select products until he selects the
++//Checkout option and then show the total amount he has to pay after calculating the GST.
++public class Product {
++    int id;
++    String name;
++    double price;
++    double gst;
++    int availableQuantity;
++
++    Product(int id,String name, double price, double gst, int availableQuantity){
++        this.id = id;
++        this.name = name;
++        this.price = price;
++        this.gst = gst;
++        this.availableQuantity = availableQuantity;
++    }
++    public double calculateAmount(int qty){
++        double total = price*qty;
++        return total + (total * gst/100);
++    }
++}
+Index: src/main/java/JavaProblems/ProductApp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/JavaProblems/ProductApp.java b/src/main/java/JavaProblems/ProductApp.java
+new file mode 100644
+--- /dev/null	(date 1770052454368)
++++ b/src/main/java/JavaProblems/ProductApp.java	(date 1770052454368)
+@@ -0,0 +1,76 @@
++package JavaProblems;
++
++import java.io.File;
++import java.util.Scanner;
++
++public class ProductApp {
++    public static void main(String[] args) {
++        Scanner sc = new Scanner(System.in);
++
++        int c = 0;
++        try (Scanner fs = new Scanner(new File("C:\\Users\\Coditas-Admin\\IdeaProjects\\Practice\\src\\main\\resources\\products.txt"))) {
++            while (fs.hasNextLine()) {
++                fs.nextLine(); // consume line
++                c++;
++            }
++        } catch (Exception e) {
++            System.out.println("File not found");
++            return;
++        }
++
++        Product[] product = new Product[c];
++        int index = 0;
++        try (Scanner fs = new Scanner(new File("C:\\Users\\Coditas-Admin\\IdeaProjects\\Practice\\src\\main\\resources\\products.txt"))) {
++            while (fs.hasNext()) {
++                int id = fs.nextInt();
++                String name = fs.next();
++                double price = fs.nextDouble();
++                double gst = fs.nextDouble();
++                int qty = fs.nextInt();
++                product[index++] = new Product(id, name, price, gst, qty);
++            }
++        } catch (Exception e) {
++            System.out.println("Error reading file");
++            return;
++        }
++
++        double grandtotal = 0;
++
++        while (true) {
++            System.out.println("\nAvailable Products:");
++            for (Product p : product) {
++                System.out.println(p.id + " " + p.name + " | Rs " + p.price + " | GST " + p.gst + "% | Stock " + p.availableQuantity);
++            }
++            System.out.println("Enter Product ID (0 for checkout): ");
++            int choice = sc.nextInt();
++
++            if (choice == 0)
++                break;
++
++            Product selected = null;
++            for (Product p : product) {
++                if (p.id == choice) {
++                    selected = p;
++                    break;
++                }
++            }
++            if (selected == null) {
++                System.out.println("Invalid product ID");
++                continue;
++            }
++            System.out.println("Enter quantity: ");
++            int q = sc.nextInt();
++            if (q > selected.availableQuantity) {
++                System.out.println("Insufficient Stock!");
++                continue;
++            }
++            double amount = selected.calculateAmount(q);
++            grandtotal += amount;
++            selected.availableQuantity -= q;
++            System.out.println("Added to cart. Amount with GST: Rs " + amount);
++        }
++
++        System.out.println("\nCheckout Complete");
++        System.out.println("Total Amount Payable (including GST): Rs " + grandtotal);
++    }
++}
+Index: src/main/java/JavaProblems/SpiralMatrix.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/JavaProblems/SpiralMatrix.java b/src/main/java/JavaProblems/SpiralMatrix.java
+--- a/src/main/java/JavaProblems/SpiralMatrix.java
++++ b/src/main/java/JavaProblems/SpiralMatrix.java	(date 1770050130140)
+@@ -2,7 +2,6 @@
+ 
+ import java.util.Scanner;
+ 
+-
+ public class SpiralMatrix {
+ // added a comment
+         static void main(String[] args) {
+@@ -37,5 +36,4 @@
+               }
+ 
+         }
+-
+ }
+Index: src/main/java/JavaProblems/LowercaseVowelsCount.java
+===================================================================
+diff --git a/src/main/java/JavaProblems/LowercaseVowelsCount.java b/src/main/java/JavaProblems/LowercaseVowelsCount.java
+deleted file mode 100644
+--- a/src/main/java/JavaProblems/LowercaseVowelsCount.java
++++ /dev/null
+@@ -1,18 +0,0 @@
+-package JavaProblems;
+-
+-import java.io.File;
+-import java.io.FileNotFoundException;
+-import java.util.Scanner;
+-
+-public class LowercaseVowelsCount {
+-    public static void main(String args[]) throws FileNotFoundException {
+-        String myfile = "C:\\Users\\Coditas-Admin\\IdeaProjects\\Practice\\src\\main\\resources\\input.txt";
+-        File file = new File(myfile);
+-        Scanner text = new Scanner(file);
+-
+-        while(text.hasNext()){
+-           String t = 
+-        }
+-text.close();
+-    }
+-}
+Index: src/main/resources/products.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/products.txt b/src/main/resources/products.txt
+new file mode 100644
+--- /dev/null	(date 1770052274416)
++++ b/src/main/resources/products.txt	(date 1770052274416)
+@@ -0,0 +1,5 @@
++101 Pen 10.0 18 100
++102 Notebook 50.0 12 200
++103 Eraser 5.0 5 150
++104 Pencil 8.0 18 300
++105 Marker 25.0 18 120
+Index: src/main/resources/input.txt
+===================================================================
+diff --git a/src/main/resources/input.txt b/src/main/resources/input.txt
+deleted file mode 100644
+--- a/src/main/resources/input.txt
++++ /dev/null
+@@ -1,1 +0,0 @@
+-I am Kashish Gupta.
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml
++++ b/.idea/vcs.xml	(date 1770052206552)
+@@ -1,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
