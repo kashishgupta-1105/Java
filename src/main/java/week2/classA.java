@@ -8,6 +8,7 @@ public class classA extends classC{
         System.out.println(test);
     }
 
+
     void print(){
         System.out.println(super.protectedVariable);
     }

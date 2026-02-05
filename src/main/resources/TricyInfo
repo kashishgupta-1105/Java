@@ -1,2 +1,32 @@
 We cannot create object of an abstract class.
 We can create constructor of an abstract class.
+
+
+//Exception Object propagation
+When we handle the exception at the time of calling the method in which exception would occur.
+
+
+Can we store method in a variable? No
+What is variable, scope of global and local variable?
+Which inbuilt method is already overridden in java? println
+Explain OOps concept.
+Difference between equals and == method?
+What is Multidimensional Array?
+
+class BankAccount{
+    static int a = 0;
+    int i=0;
+    BankAccount() {
+        a++;
+        i++;
+    }
+    static void main() {
+        BankAccount b = new BankAccount();
+        new BankAccount();
+        new BankAccount();
+        System.out.println(a);
+        System.out.println(b.i);
+    }
+}
+
+//We can access members of outer class in inner class even if it is private.
